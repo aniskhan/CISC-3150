@@ -13,7 +13,7 @@ import java.lang.Math; // do I need this if I explicitly call Math?
 public class Main {
 
 	public static void main(String[] args) {
-		//BufferedReader/InputStreamReader/IO Exception portions adapted from:
+	//BufferedReader/InputStreamReader/IO Exception portions adapted from:
     	//https://stackoverflow.com/questions/4644415/java-how-to-get-input-from-system-console
     	
 	   BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
