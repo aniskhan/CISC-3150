@@ -30,8 +30,8 @@ public class Main {
 			continue start;	
 		}
 			circleArea = Math.PI * (Math.pow(circleRadius, 2)); // https://www.tutorialspoint.com/java/lang/math_pow.htm
-    	    System.out.println("Your radius: " + circleRadius);
-    	    System.out.println("... means your circle has an area of: " + circleArea + "\n");
+    	    		System.out.println("Your radius: " + circleRadius);
+    	    		System.out.println("... means your circle has an area of: " + circleArea + "\n");
 	   }
 
 	}
