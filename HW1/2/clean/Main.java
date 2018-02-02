@@ -18,7 +18,7 @@ public class Main {
     	
 	   BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	   start://  
-	   while (true) {
+	   while (true) { // TODO: exit on EOF
 		   
 		   Double circleRadius = null;
 		   Double circleArea = null;
