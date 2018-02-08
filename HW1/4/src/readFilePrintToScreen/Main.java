@@ -8,25 +8,25 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-
-
-
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO take filePath arg directly from console
-		String strFilePath = "C:\\Users\\Anisa\\Documents\\CUNY\\CISC\\CISC-3150\\HW1\\4\\sampleInput\\sample_SomeNumbers.txt";
+		if (args.length == 0) {
+			System.err.println("You must provide a file path.");
+			System.exit(1);
+		}
+		String strFilePath = args[0].toString(); // takes an arg from command line
 		File someFile = new File(strFilePath);
-		Scanner fileScanner;
 		try {
-			fileScanner = new Scanner(someFile);
+			Scanner fileScanner = new Scanner(someFile);
 			while (fileScanner.hasNext()){
 				System.out.println(fileScanner.next().toString());
 			}
 			fileScanner.close();
+			System.exit(0);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(1);
 		}
 		
 	}

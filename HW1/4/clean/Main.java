@@ -1,22 +1,29 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// take a param directly from console
-		BufferedReader sysReader = new BufferedReader(new InputStreamReader(System.in));
-		try {
-			String input = sysReader.readLine();
-			System.out.println("Repeat Back: " + input);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (args.length == 0) {
+			System.err.println("You must provide a file path.");
+			System.exit(1);
 		}
-	
+		// takes an arg from command line ..does this count as "redirection"?
+		String strFilePath = args[0].toString();
+		File someFile = new File(strFilePath);
+		try {
+			Scanner fileScanner = new Scanner(someFile);
+			while (fileScanner.hasNext()){
+				System.out.println(fileScanner.next().toString());
+			}
+			fileScanner.close();
+			System.exit(0);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		
 	}
 
 }
