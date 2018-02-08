@@ -24,7 +24,7 @@ public class Main {
 			System.out.print("Enter a circle radius (numeric value only): ");
 			try {
 				String input = reader.readLine();
-				if (input !=null) { // no EOF provided
+				if (input !=null) { // Value other than EOF is provided
 					try {
 						circleRadius = Double.parseDouble(input);
 						
