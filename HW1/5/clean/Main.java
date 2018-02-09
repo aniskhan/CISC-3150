@@ -1,12 +1,3 @@
-/*Question 5:
-Write a program that reads three 2D points A, B, and C from the user. 
-Next, calculate the length of each side of the triangle using the 
-distance formula: sqrt((x2-x1)^2+(y2-y1)^2). Finally, determine if it's a 
-real triangle. For a triangle to be real, the sum of any two sides needs 
-to be greater than the third. Make sure your output has some real and at 
-least one fake triangle.*/
-
-package isRealTriangle;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,7 +26,7 @@ public class Main {
 		calcSideLength(2,3);
 		calcSideLength(3,1);
 		System.out.print("Is this a real triangle?  " + isRealTriangle() + "!");
-		System.exit(0);
+		
 	}
 	
 	public static boolean parseStoreInput(int intVertexID) {
@@ -65,7 +56,7 @@ public class Main {
 	}
 	
 	public static void calcSideLength(int VertexID1, int VertexID2) {
-		//formula: sqrt((x2-x1)^2+(y2-y1)^2)
+		//sqrt((x2-x1)^2+(y2-y1)^2)
 		Double xDiff = hashVertices.get(VertexID2).getx()-hashVertices.get(VertexID1).getx();
 		Double yDiff = hashVertices.get(VertexID2).gety()-hashVertices.get(VertexID1).gety();
 		sideLengths[VertexID1-1] = Math.sqrt((Math.pow(xDiff, 2))+ (Math.pow(yDiff, 2)));
@@ -84,7 +75,7 @@ public class Main {
 		}
 	}
 	
-    static class VertexCoord { // because I couldn't figure out how to access an element of an array nested in a map!
+    static class VertexCoord { // because I couldn't figure out how to access an array element nested in a map!
 	Double x;
     Double y;
     public VertexCoord (Double x, Double y) { //setter
@@ -99,29 +90,3 @@ public class Main {
     }
 }
 }
-
-
-/*
-psuedo code:
-
-from i = 1:3
-	sys.out ""Enter numeric coordinates for vertex " + i  + " 1 of you triangle [x,y]):"
-	
-	func
-	try cast input to array, split on ','
-	check that array only has two items
-	check that both items are double
-	put to hashmap i.x / i.y
-	
-	end func
-
-	///get side lengths
- using sqrt((x2-x1)^2+(y2-y1)^2)
- 1-->2; 2-->3; 3-->1 (how to wrap around from 3 to 1? need to get all permutations or hard code)
- save to array
- print to console (probably should do as a loop, showing each side length on it's own line) 
- 
- //test if true triangle
-   For a triangle to be real, the sum of any two sides needs 
-to be greater than the third
-  */
