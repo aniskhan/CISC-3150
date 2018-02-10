@@ -63,7 +63,25 @@ public class Main {
 		Boolean isOverlapping = false;
 		Boolean isCirc1InCirc2 = false;
 		Boolean isCirc2InCirc1 = false;
+		if (distCircles <= myCirlcesMap.get(1).getRadius() + myCirlcesMap.get(2).getRadius()) {
+			isTouching = true;
+			if (distCircles < myCirlcesMap.get(1).getRadius() + myCirlcesMap.get(2).getRadius()) {
+				isOverlapping = true;
+				if (distCircles < myCirlcesMap.get(2).getRadius() &&
+				(myCirlcesMap.get(1).getRadius()) < myCirlcesMap.get(2).getRadius()){
+					isCirc1InCirc2 = true;
+				} else if(distCircles < myCirlcesMap.get(1).getRadius() &&
+						(myCirlcesMap.get(2).getRadius()) < myCirlcesMap.get(1).getRadius()){
+					isCirc2InCirc1 = true;
+				}
+				
+			}
+		}
 		
+		System.out.println("Circles Touching?: " + isTouching);
+		System.out.println("Circles Overlapping?: " + isOverlapping);
+		System.out.println("Circle 1 in circle 2?: " + isCirc1InCirc2);
+		System.out.println("Circle 2 in circle 1?: " + isCirc2InCirc1);
 		
 		
 		
