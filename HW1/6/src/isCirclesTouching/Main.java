@@ -14,12 +14,12 @@ import java.util.Map;
 
 
 public class Main {
-	static Map <Integer, myCircle> mapCircles =  new HashMap<Integer, myCircle>();
+	static Map <Integer, myCircle> myCirlcesMap =  new HashMap<Integer, myCircle>();
 	public static void main(String[] args) {
 		int i = 1;
 		do {
-			System.out.println("Enter [x,y,r] center coordinate / radius for circle ["
-					+ i + "]:");
+			System.out.println("Enter center coordinate / radius [x,y,r] for circle "
+					+ i + ":");
 			if (parseStoreInput(i)) {
 				i++;
 			} else {
@@ -27,7 +27,8 @@ public class Main {
 						+ "Enter three numeric values, separated by a comma.");
 				continue;
 			}
-		} while (i <= 2); 
+		} while (i <= 2);
+		analyzeCircles();
 
 	}
 	public static boolean parseStoreInput(int intCircleID) {
@@ -41,7 +42,7 @@ public class Main {
 			for (int i = 0; i < tempArray.length; i++) {
 				try {
 					arrayInput[i] = Double.parseDouble(tempArray[i]);
-					mapCircles.put(intCircleID, new myCircle(arrayInput[0], arrayInput[1], arrayInput[2]));
+					myCirlcesMap.put(intCircleID, new myCircle(arrayInput[0], arrayInput[1], arrayInput[2]));
 				}catch (NumberFormatException e){
 					return false;
 				}
@@ -51,6 +52,21 @@ public class Main {
 			
 		}
 		return true;
+	}
+	
+	public static void analyzeCircles(){
+		Double xDiff = myCirlcesMap.get(2).getX()-myCirlcesMap.get(1).getX();
+		Double yDiff = myCirlcesMap.get(2).getY()-myCirlcesMap.get(1).getY();
+		Double distCircles = Math.sqrt((Math.pow(xDiff, 2))+ (Math.pow(yDiff, 2)));
+		
+		Boolean isTouching = false;
+		Boolean isOverlapping = false;
+		Boolean isCirc1InCirc2 = false;
+		Boolean isCirc2InCirc1 = false;
+		
+		
+		
+		
 		
 	}
 	
