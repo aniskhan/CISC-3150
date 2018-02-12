@@ -51,12 +51,12 @@ class Main {
 	}
 	public static void populatePyramid() {
 		for (int x = 0;x < matrix.length; x++) {
-			int seed = (2 - rowCount); // this is the number the [0][0] should begin at.. need it in terms of x!
+			int seed = (-rowCount+2+x); // this is the number each row should begin at in terms of x
 			 for (int y = 0; y < matrix.length; y++) {
-				 //if(seed > 0) {
+				 if(seed > 0) {
 					 matrix[x][y] = seed;						 
-				 //}
-				 //determine which side of pyramid we are one
+				 }
+				 //increment based on which side of pyramid we are on
 				 if(y < centerColIndex) {
 					 seed++;
 				 }else {
