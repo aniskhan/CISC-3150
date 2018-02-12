@@ -57,7 +57,7 @@ class Main {
 					 matrix[x][y] = seed;						 
 				 }
 				 //increment based on which side of pyramid we are on
-				 if(y < centerColIndex) {
+				 if(y < centerColIndex) { // intentionally do not want to increment at centerColIndex
 					 seed++;
 				 }else {
 					 seed--;					  
@@ -68,7 +68,11 @@ class Main {
 	public static void printMatrix() {
 		for (int x = 0; x < matrix.length; x++) {
 		    for (int y = 0; y < matrix.length; y++) {
-		        System.out.print(matrix[x][y] + " "); //TODO: handle removal of "0"s... print as empty strings
+		    	if(matrix[x][y] != 0) {
+		    		System.out.print(matrix[x][y] + " ");
+		    	} else {
+		    		System.out.print(" " + " ");
+		    	}
 		    }
 		    System.out.println();
 		}
