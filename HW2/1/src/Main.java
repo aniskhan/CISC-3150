@@ -15,6 +15,28 @@ program shows:
   1 2 3 4 3 2 1*/
   
 
+/*My Approach:
+ For this to work efficiently, the same function must be performed on each row.
+ To better visualize what's happening here, it best to treat this as a square
+ matrix, while selectively printing the numbers that form the pyramid.
+ 
+ So the above example should be conceptualized as:
+-5 -4 -3 -2 -3 -4 -5 
+-4 -3 -2 -1 -2 -3 -4 
+-3 -2 -1  0 -1 -2 -3 
+-2 -1  0  1  0 -1 -2 
+-1  0  1  2  1  0 -1 
+ 0  1  2  3  2  1  0 
+ 1  2  3  4  3  2  1 
+ 
+ From here it's simple to see that to hold the pyramid you need a matrix with n rows,
+ where n = height + 2(height-1) AND that each row has a seed (starting point) relative to x / y.
+ The values count up from that seed to the center of the pyramid, then decrease.
+ 
+ To display the pyramid, you can simply assign the value to matrix or (print to console) if it is greater than 0.
+ * 
+ * */
+
 class Main {
 	static int pyramidHeight = 0;
 	static int rowCount;
@@ -25,7 +47,6 @@ class Main {
 		while(true) {
 			System.out.println("How tall would you like your pyramid to be?");
 			if (parseStoreInput()) {
-				///continue;
 				matrix = new int[rowCount][colCount];
 				populatePyramid();
 				printMatrix();
@@ -42,7 +63,7 @@ class Main {
 			Integer input = Integer.parseUnsignedInt(reader.readLine());
 			pyramidHeight = input; // pyramid height
 			rowCount = pyramidHeight + (pyramidHeight- 1); // how many rows needed in each array?
-			colCount = rowCount; //b/c it's a square
+			colCount = rowCount;
 			centerColIndex = pyramidHeight- 1; //adjusted for 0-indexed array
 		} catch (IOException | NumberFormatException e){
 			return false;
@@ -53,7 +74,7 @@ class Main {
 		for (int x = 0;x < matrix.length; x++) {
 			int seed = (-rowCount+2+x); // this is the number each row should begin at in terms of x
 			 for (int y = 0; y < matrix.length; y++) {
-				 if(seed > 0) {
+				 if(seed > 0) { // only allocate if number will print
 					 matrix[x][y] = seed;						 
 				 }
 				 //increment based on which side of pyramid we are on
@@ -69,7 +90,7 @@ class Main {
 		for (int x = 0; x < matrix.length; x++) {
 		    for (int y = 0; y < matrix.length; y++) {
 		    	if(matrix[x][y] != 0) {
-		    		System.out.print(matrix[x][y] + " ");
+		    		System.out.print(matrix[x][y] + " "); //TODO formatting with .printf
 		    	} else {
 		    		System.out.print(" " + " ");
 		    	}
