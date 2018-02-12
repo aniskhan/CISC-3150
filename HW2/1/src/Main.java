@@ -18,7 +18,7 @@ program shows:
 /*My Approach:
  For this to work efficiently, the same function must be performed on each row.
  To better visualize what's happening here, it best to treat this as a square
- matrix, while selectively printing the numbers that form the pyramid.
+ matrix, while selectively assigning and/or printing the numbers that form the pyramid.
  
  So the above example should be conceptualized as:
 -5 -4 -3 -2 -3 -4 -5 
@@ -29,7 +29,7 @@ program shows:
  0  1  2  3  2  1  0 
  1  2  3  4  3  2  1 
  
- From here it's simple to see that to hold the pyramid you need a matrix with n rows,
+ From here it's simple to see that in order to hold the pyramid, you need a matrix with n rows,
  where n = height + 2(height-1) AND that each row has a seed (starting point) relative to x / y.
  The values count up from that seed to the center of the pyramid, then decrease.
  
