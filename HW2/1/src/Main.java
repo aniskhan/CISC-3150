@@ -51,19 +51,16 @@ class Main {
 	}
 	public static void populatePyramid() {
 		for (int x = 0;x < matrix.length; x++) {
-			int seed = pyramidHeight - (2*pyramidHeight) +x; // 
+			int seed = (2 - rowCount); // this is the number the [0][0] should begin at.. need it in terms of x!
 			 for (int y = 0; y < matrix.length; y++) {
+				 //if(seed > 0) {
+					 matrix[x][y] = seed;						 
+				 //}
 				 //determine which side of pyramid we are one
-				 if(y <= centerColIndex) {
-					 if(seed > 0) {
-						 matrix[x][y] = seed;						 
-					 }
+				 if(y < centerColIndex) {
 					 seed++;
 				 }else {
-					 seed--;
-					 if(seed > 0) {
-						 matrix[x][y] = seed;						 
-					 } 
+					 seed--;					  
 				 }
 			 }			
 		}
@@ -71,7 +68,7 @@ class Main {
 	public static void printMatrix() {
 		for (int x = 0; x < matrix.length; x++) {
 		    for (int y = 0; y < matrix.length; y++) {
-		        System.out.print(matrix[x][y] + " ");
+		        System.out.print(matrix[x][y] + " "); //TODO: handle removal of "0"s... print as empty strings
 		    }
 		    System.out.println();
 		}
