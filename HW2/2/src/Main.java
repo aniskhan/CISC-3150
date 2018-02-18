@@ -49,7 +49,17 @@ public class Main {
 		        	System.out.println();
 		        	int ctWeekday = 1;
 		        	for (int dayNumber = 1;dayNumber<=ctMonthDays;dayNumber++) {
-		        		System.out.printf("%4s",dayNumber);
+		        		
+		        		switch (dayNumber) {
+		        		case 1:
+		        			if(ctWeekday == inputFirstDay) {
+		        				System.out.printf("%4s",dayNumber);
+		        			} else {
+		        				System.out.printf("%4s","");
+		        			}
+		        		default:
+		        			System.out.printf("%4s",dayNumber);
+		        		}
 		        		ctWeekday++;
 		        		if (ctWeekday >7){
 		        			ctWeekday = 1;
