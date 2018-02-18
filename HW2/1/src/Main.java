@@ -37,19 +37,19 @@ class Main {
 		Scanner input = new Scanner(System.in);
 			System.out.println("How tall would you like your pyramid to be?");
 			try{
-				int pyramidHeight = input.nextInt();
+				Integer pyramidHeight = input.nextInt();
 				int rCount = pyramidHeight;
 				int kCount = pyramidHeight + (pyramidHeight- 1); // how many columns needed
 				int centerkIndex = pyramidHeight;
-				
+				String printWidth = "%" + pyramidHeight.toString().length() + "s";
 				for (int r = 1; r <= rCount; r++) {
 					Integer seed = (-rCount+1+r); // this is the number each row should begin at in terms of x
 					System.out.println();
 					for (int k = 1; k <= kCount; k++){
 						if(seed > 0) { // only print if value is a part of printable pyramid
-							 System.out.print(seed.toString());				 
+							 System.out.printf(printWidth,seed.toString());				 
 						 } else {
-							 System.out.print(" ");	
+							 System.out.printf(printWidth,"");	
 						 }
 						 //increment based on which side of pyramid we are on
 						 if(k < centerkIndex) { // intentionally do not want to increment at centerColIndex
