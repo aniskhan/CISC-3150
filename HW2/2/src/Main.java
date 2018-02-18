@@ -41,7 +41,7 @@ public class Main {
 		        	int ctMonthDays = someDate.lengthOfMonth(); // this method handles leap years
 		        	String monthName = someDate.getMonth().getDisplayName(TextStyle.FULL, Locale.US);
 
-		            System.out.println(monthName +" "+ inputYear);  
+		            System.out.println(monthName +" "+ inputYear);  //TODO: center Month / Year
 		            
 		            String [] weekDayNames = new DateFormatSymbols().getShortWeekdays();
 		        	for (int i= 1; i<=7;i++) {
