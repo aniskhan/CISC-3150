@@ -1,6 +1,7 @@
 import java.text.DateFormatSymbols;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.text.DateFormat;
 import java.util.InputMismatchException;
 import java.util.Locale;
@@ -30,22 +31,15 @@ public class Main {
 				input.useDelimiter("\\D"); // can't figure out how to take comma
 				int inputYear = input.nextInt();
 				int inputFirstDay = input.nextInt();
-				//System.out.println(inputYear);
-				//System.out.println(inputFirstDay);
-				String[] months = new DateFormatSymbols().getMonths(); //https://kodejava.org/how-do-i-get-a-list-of-month-names/
-				
-				//DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.US); 
-				//LocalDate date = LocalDate.parse(dateString, dateFormat);
-				//LocalDate newDate = date.withDayOfMonth(date.getMonth().maxLength());
-				//System.out.println(newDate);
-		        for (int intMonth = 0; intMonth <= 11; intMonth++) {
-		        	//Integer formattedintMonth = ();
-		        	String dummyDateString = intMonth + 1+"/01/"+inputYear; //every month has a first!
+
+		        for (int intMonth = 1; intMonth <= 12; intMonth++) {
+		        	String dummyDateString = intMonth + "/01/"+inputYear; //every month has a first!
 		        	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/dd/yyyy", Locale.US); 
-		        	LocalDate date = LocalDate.parse(dummyDateString, dateFormat);
-		        	int ctMonthDays = date.lengthOfMonth(); // this handles leap years
+		        	LocalDate someDate = LocalDate.parse(dummyDateString, dateFormat);
+		        	int ctMonthDays = someDate.lengthOfMonth(); // this method handles leap years
+		        	String monthName = someDate.getMonth().getDisplayName(TextStyle.FULL, Locale.US);
 		        	
-		            System.out.println(months[intMonth] +" "+ inputYear+ " "+ ctMonthDays);  
+		            System.out.println(monthName +" "+ inputYear);  
 		        }
 			}
 			catch(InputMismatchException e) {
