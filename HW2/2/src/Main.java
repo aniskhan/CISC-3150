@@ -47,7 +47,7 @@ public class Main {
 		        	LocalDate someDate = LocalDate.parse(dummyDateString, dateFormat);
 		        	int ctMonthDays = someDate.lengthOfMonth(); // this method handles leap years
 		        	String monthName = someDate.getMonth().getDisplayName(TextStyle.FULL, Locale.US);
-		        	printMonthHeader(monthName +" "+ inputYear);  //TODO: center Month / Year
+		        	printMonthHeader(monthName +" "+ inputYear);  //prints month / year roughly center
 		            
 		            //print weekday header
 		        	for (int i= 1; i<=7; i++) {
