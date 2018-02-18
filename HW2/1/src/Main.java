@@ -43,9 +43,9 @@ class Main {
 				String printWidth = "%" + pyramidHeight.toString().length() + "s";
 				for (int r = 1; r <= rCount; r++) {
 					Integer seed = (-rCount+1+r); // this is the number each row should begin at in terms of x
-					System.out.println();
+					System.out.println(); //move cursor for next row
 					for (int k = 1; k <= kCount; k++){
-						if(seed > 0) { // only print if value is a part of printable pyramid
+						if(seed > 0) { // if value is a part of printable pyramid
 							 System.out.printf(printWidth,seed.toString());				 
 						 } else {
 							 System.out.printf(printWidth,"");	
