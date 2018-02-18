@@ -25,21 +25,33 @@ Su Mo Tu We Th Fr Sa
 public class Main {
     
 	public static void main(String[] args) {
-			System.out.println("Enter the year, comma, and beginning weekday-number to print your calendar (ex. '2017,1')");
+			System.out.println("Enter the year, comma, and first weekday-number to print your calendar (ex. '2017,1')");
 			Scanner input = new Scanner(System.in);
 			try {
-				input.useDelimiter("\\D"); // can't figure out how to take comma
+				input.useDelimiter("\\D"); // can't figure out how to take comma, using "not digit"
 				int inputYear = input.nextInt();
 				int inputFirstDay = input.nextInt();
-
+				//adopted from: https://stackoverflow.com/questions/13624442/getting-last-day-of-the-month-in-given-string-date
 		        for (int intMonth = 1; intMonth <= 12; intMonth++) {
 		        	String dummyDateString = intMonth + "/01/"+inputYear; //every month has a first!
 		        	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/dd/yyyy", Locale.US); 
 		        	LocalDate someDate = LocalDate.parse(dummyDateString, dateFormat);
 		        	int ctMonthDays = someDate.lengthOfMonth(); // this method handles leap years
 		        	String monthName = someDate.getMonth().getDisplayName(TextStyle.FULL, Locale.US);
-		        	
+
 		            System.out.println(monthName +" "+ inputYear);  
+		            
+		            String [] weekDayNames = new DateFormatSymbols().getShortWeekdays();
+		        	for (int i= 1; i<=7;i++) {
+		                System.out.printf("%4s",weekDayNames[i]); 
+		                //TODO print only left, 2 of weekday
+		            }
+		        	System.out.println();
+		        	for (int dayNumber = 1;dayNumber<=ctMonthDays;dayNumber++) {
+		        		System.out.printf("%4s",dayNumber);
+		        		
+		        	}
+		        	System.out.println();
 		        }
 			}
 			catch(InputMismatchException e) {
