@@ -27,7 +27,7 @@ public class Main {
 			Scanner input = new Scanner(System.in);
 			try {
 				input.useDelimiter("\\D"); // can't figure out how to take comma, using "not digit"
-				int inputYear = input.nextInt();
+				Integer inputYear = input.nextInt();
 				int inputFirstDay = input.nextInt();
 				int firstMonthDay = inputFirstDay;
 				String printFormat = "%3s";
@@ -39,7 +39,7 @@ public class Main {
 				for (int i= 1; i<=7;i++) {
 					formattedWeekDayNames[i] = weekDayNames[i].substring(0,2);
 				}
-				// get month name and last day of month with leap year handling
+				// get month name and last day of month with leap-year handling
 				//adopted from: https://stackoverflow.com/questions/13624442/getting-last-day-of-the-month-in-given-string-date
 		        for (int intMonth = 1; intMonth <= 12; intMonth++) {
 		        	String dummyDateString = intMonth + "/01/"+inputYear; //every month has a first!
@@ -47,31 +47,31 @@ public class Main {
 		        	LocalDate someDate = LocalDate.parse(dummyDateString, dateFormat);
 		        	int ctMonthDays = someDate.lengthOfMonth(); // this method handles leap years
 		        	String monthName = someDate.getMonth().getDisplayName(TextStyle.FULL, Locale.US);
-		            System.out.println(monthName +" "+ inputYear);  //TODO: center Month / Year
+		        	printMonthHeader(monthName +" "+ inputYear);  //TODO: center Month / Year
 		            
 		            //print weekday header
-		        	for (int i= 1; i<=7;i++) {
+		        	for (int i= 1; i<=7; i++) {
 		                System.out.printf(printFormat,formattedWeekDayNames[i]); 
 		            }
 		        	System.out.println();
-		        	int ctWeekday = 1;
-		        	for (int dayNumber = 1;dayNumber<=ctMonthDays;dayNumber++) {
+		        	int ctInWeek = 1;
+		        	for (int monthDayNumber = 1; monthDayNumber<=ctMonthDays; monthDayNumber++) {
 		        		
-		        		if (dayNumber == 1) { // print empty space until cursor at appropriate day for month beginning
-		        			while (ctWeekday < firstMonthDay) {
+		        		if (monthDayNumber == 1) { // print empty space until cursor at appropriate day for month beginning
+		        			while (ctInWeek < firstMonthDay) {
 		        				System.out.printf(printFormat,"");
-		        				ctWeekday++;
+		        				ctInWeek++;
 		        			}
 		        		}
-		        		System.out.printf(printFormat,dayNumber);
-		        		ctWeekday++;
-		        		if (ctWeekday >7){
-		        			ctWeekday = 1;
+		        		System.out.printf(printFormat,monthDayNumber);
+		        		ctInWeek++;
+		        		if (ctInWeek >7){
+		        			ctInWeek = 1;
 		        			System.out.println(); //wrap dates, new line after Saturday		        			
 		        		}
 		        	}
 		        	System.out.println("\n"); //space b/w months
-		        	firstMonthDay = ctWeekday;
+		        	firstMonthDay = ctInWeek; // has already been incremented above, correct if >7
 		        	if  (firstMonthDay>7) {
 		        		firstMonthDay =1;
 		        	}
@@ -81,5 +81,13 @@ public class Main {
 				System.out.println("Bad Input");
 			}
 			input.close();
+	}
+	public static void printMonthHeader (String str) { // center month header
+		// adopted from https://stackoverflow.com/questions/16629476/how-to-center-a-print-statement-text, user:marcelocra
+		int lenStr = str.length();
+		String paddingChar = " ";
+		int padding = (21-lenStr)/2;
+		String monthHeaderFormat  = "%" + padding + "s%-" + padding + "s\n";
+		System.out.printf(monthHeaderFormat, paddingChar, str);
 	}
 }
