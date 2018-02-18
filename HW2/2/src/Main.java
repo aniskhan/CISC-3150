@@ -47,8 +47,14 @@ public class Main {
 		                //TODO print only left, 2 of weekday
 		            }
 		        	System.out.println();
+		        	int ctWeekday = 1;
 		        	for (int dayNumber = 1;dayNumber<=ctMonthDays;dayNumber++) {
 		        		System.out.printf("%4s",dayNumber);
+		        		ctWeekday++;
+		        		if (ctWeekday >7){
+		        			ctWeekday = 1;
+		        			System.out.println();		        			
+		        		}
 		        		
 		        	}
 		        	System.out.println();
