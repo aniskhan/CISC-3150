@@ -31,8 +31,10 @@ public class Main {
 				input.useDelimiter("\\D"); // can't figure out how to take comma, using "not digit"
 				int inputYear = input.nextInt();
 				int inputFirstDay = input.nextInt();
+				int firstMonthDay = inputFirstDay;
 				//adopted from: https://stackoverflow.com/questions/13624442/getting-last-day-of-the-month-in-given-string-date
 		        for (int intMonth = 1; intMonth <= 12; intMonth++) {
+		        	
 		        	String dummyDateString = intMonth + "/01/"+inputYear; //every month has a first!
 		        	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/dd/yyyy", Locale.US); 
 		        	LocalDate someDate = LocalDate.parse(dummyDateString, dateFormat);
@@ -50,11 +52,10 @@ public class Main {
 		        	int ctWeekday = 1;
 		        	for (int dayNumber = 1;dayNumber<=ctMonthDays;dayNumber++) {
 		        		
-		        		if (dayNumber == 1) {
-		        			while (ctWeekday < inputFirstDay) {
+		        		if (dayNumber == 1) { // print empty
+		        			while (ctWeekday < firstMonthDay) {
 		        				System.out.printf("%4s","");
 		        				ctWeekday++;
-		        				
 		        			}
 		        				
 		        		}
@@ -67,6 +68,10 @@ public class Main {
 		        		
 		        	}
 		        	System.out.println();
+		        	firstMonthDay = ctWeekday;
+		        	if  (firstMonthDay>7) {
+		        		firstMonthDay =1;
+		        	}
 		        }
 			}
 			catch(InputMismatchException e) {
