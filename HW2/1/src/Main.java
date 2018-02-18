@@ -40,7 +40,6 @@ class Main {
 				Integer pyramidHeight = input.nextInt();
 				int rCount = pyramidHeight;
 				int kCount = pyramidHeight + (pyramidHeight- 1); // how many columns needed
-				int centerkIndex = pyramidHeight;
 				String printWidth = "%" + pyramidHeight.toString().length() + "s";
 				for (int r = 1; r <= rCount; r++) {
 					Integer seed = (-rCount+1+r); // this is the number each row should begin at in terms of x
@@ -52,7 +51,7 @@ class Main {
 							 System.out.printf(printWidth,"");	
 						 }
 						 //increment based on which side of pyramid we are on
-						 if(k < centerkIndex) { // intentionally do not want to increment at centerColIndex
+						 if(k < pyramidHeight) { //pyramidHeight = center column; intentionally do not want to increment at centerColIndex
 							 seed++;
 						 } else {
 							 seed--;					  
