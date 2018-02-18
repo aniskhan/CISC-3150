@@ -59,7 +59,7 @@ class Main {
 					}
 				}
 			}
-			catch (InputMismatchException | NumberFormatException e){
+			catch (InputMismatchException e){
 				System.err.println("Unable to parse input. "
 						+ "Enter a positive whole number.");
 			}

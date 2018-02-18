@@ -1,4 +1,4 @@
-import java.io.InputStream;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*Question 2: 
@@ -14,19 +14,19 @@ Su Mo Tu We Th Fr Sa
  8  9 10 11 12 13 14  
 15 16 17 18 19 20 21  
 22 23 24 25 26 27 28 */
-import java.util.Scanner;
+
 
 public class Main {
 	public static void main(String[] args) {
-		while (true) {
 			System.out.println("Enter the year, comma, and beginning weekday-number to print your calendar (ex. '2017,1')");
-			Scanner sc = new Scanner(System.in);
-			try(){
+			Scanner input = new Scanner(System.in);
+			try {
+				int inputYear = input.nextInt();
+				int inputFirstDay = input.nextInt();
+			}
+			catch(InputMismatchException e) {
 				
 			}
-			catch(){
-			}
-			}
-		}
+
 	}
 }
