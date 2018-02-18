@@ -1,3 +1,4 @@
+import java.text.DateFormatSymbols;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -17,16 +18,24 @@ Su Mo Tu We Th Fr Sa
 
 
 public class Main {
+    
 	public static void main(String[] args) {
 			System.out.println("Enter the year, comma, and beginning weekday-number to print your calendar (ex. '2017,1')");
 			Scanner input = new Scanner(System.in);
 			try {
+				input.useDelimiter("\\D"); // can't figure out how to take comma
 				int inputYear = input.nextInt();
 				int inputFirstDay = input.nextInt();
+				//System.out.println(inputYear);
+				//System.out.println(inputFirstDay);
+				String[] months = new DateFormatSymbols().getMonths();
+		        for (int intMonth = 0; intMonth <= 11; intMonth++) {
+		            System.out.println(months[intMonth] +" "+ inputYear);
+		        }
 			}
 			catch(InputMismatchException e) {
-				
+				System.out.println("Bad Input");
 			}
-
+			input.close();
 	}
 }
