@@ -49,10 +49,14 @@ public class Main {
 		        	System.out.println();
 		        	int ctWeekday = 1;
 		        	for (int dayNumber = 1;dayNumber<=ctMonthDays;dayNumber++) {
-		        		while (dayNumber == 1 && ctWeekday < inputFirstDay) {
+		        		
+		        		if (dayNumber == 1) {
+		        			while (ctWeekday < inputFirstDay) {
 		        				System.out.printf("%4s","");
 		        				ctWeekday++;
-		        				break;
+		        				
+		        			}
+		        				
 		        		}
 		        		System.out.printf("%4s",dayNumber);
 		        		ctWeekday++;
