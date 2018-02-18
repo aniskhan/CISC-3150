@@ -1,6 +1,9 @@
 import java.text.DateFormatSymbols;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.text.DateFormat;
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 /*Question 2: 
@@ -30,22 +33,19 @@ public class Main {
 				//System.out.println(inputYear);
 				//System.out.println(inputFirstDay);
 				String[] months = new DateFormatSymbols().getMonths(); //https://kodejava.org/how-do-i-get-a-list-of-month-names/
+				
+				//DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.US); 
+				//LocalDate date = LocalDate.parse(dateString, dateFormat);
+				//LocalDate newDate = date.withDayOfMonth(date.getMonth().maxLength());
+				//System.out.println(newDate);
 		        for (int intMonth = 0; intMonth <= 11; intMonth++) {
-		        	int ctMonthDays;
-		        	switch (intMonth) {
-		        	case 0:
-		        		ctMonthDays = 31;
-		        	case 1:
-		        		ctMonthDays = 28;
-		        	default:
-		        		if(intMonth % 2 ==0) {
-			        		ctMonthDays = 31;
-			        	} else {
-			        		ctMonthDays = 30;
-			        	}	
-		        	}
+		        	//Integer formattedintMonth = ();
+		        	String dummyDateString = intMonth + 1+"/01/"+inputYear; //every month has a first!
+		        	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/dd/yyyy", Locale.US); 
+		        	LocalDate date = LocalDate.parse(dummyDateString, dateFormat);
+		        	int ctMonthDays = date.lengthOfMonth(); // this handles leap years
 		        	
-		            System.out.println(months[intMonth] +" "+ inputYear+ " "+ ctMonthDays);
+		            System.out.println(months[intMonth] +" "+ inputYear+ " "+ ctMonthDays);  
 		        }
 			}
 			catch(InputMismatchException e) {
