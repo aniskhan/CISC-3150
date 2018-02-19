@@ -1,0 +1,12 @@
+Enter a String:
+hola world
+h
+o
+l
+a
+ 
+w
+o
+r
+l
+d
