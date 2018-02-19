@@ -23,7 +23,7 @@ Su Mo Tu We Th Fr Sa
 
 public class Main {
 	public static void main(String[] args) {
-			System.out.println("Enter the year, and first weekday-number to print your calendar (ex. '2017,1')");
+			System.out.println("Enter the year, comma, and first weekday-number to print your calendar (ex. '2017,1')");
 			Scanner input = new Scanner(System.in);
 			try {
 				//input.useDelimiter("\\D"); // can't figure out how to take comma, so using "not digit"; I think newline is throwing this off
