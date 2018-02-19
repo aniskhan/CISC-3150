@@ -21,7 +21,7 @@ for(int i=0;i<100;i++){
 cycles indefinately in the same pattern.
 
 	In the second code snippet, we reassign x, after shifting by i. Thus, we lose a part of 
-x (its binary) each time (by i number of bits). By the sixth iteration, x is zero, which will 
+x (its binary bits) each time (by i number of bits). By the sixth iteration, x is zero, which will 
 repeat forever beyond that point (b/c bit shifting zero equals zero).
 
 --- NOTES ---

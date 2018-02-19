@@ -26,7 +26,10 @@ public class Main {
 			System.out.println("Enter the year, and first weekday-number to print your calendar (ex. '2017,1')");
 			Scanner input = new Scanner(System.in);
 			try {
-				input.useDelimiter("\\D"); // can't figure out how to take comma, using "not digit"
+				//input.useDelimiter("\\D"); // can't figure out how to take comma, so using "not digit"; I think newline is throwing this off
+				input.useDelimiter("[\\s,\r\n]+"); 
+				// http://www.dreamincode.net/forums/topic/140317-java-scanner-delimiter-comma/
+				//it was the newline, I knew it!
 				Integer inputYear = input.nextInt();
 				int inputFirstDay = input.nextInt();
 				int firstMonthDay = inputFirstDay;
