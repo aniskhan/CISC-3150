@@ -1,30 +1,33 @@
 Question 1:
 
-Main.java: <link>
-Sample Output: <link>
+Main.java: https://github.com/aniskhan/CISC-3150/blob/master/HW2/1/src/Main.java
+Sample Output: https://github.com/aniskhan/CISC-3150/blob/master/HW2/1/sampleOutput/sampleOutput.txt
 
 Question 2:
 
-Main.java: <link>
-Sample Output: <link>
+Main.java: https://github.com/aniskhan/CISC-3150/blob/master/HW2/2/src/Main.java
+Sample Output: https://github.com/aniskhan/CISC-3150/blob/master/HW2/2/sampleOutput/sampleOutput.txt
 
 Question 3:
 
-Main.java: <link>
-Sample Output: <link>
+Main.java: https://github.com/aniskhan/CISC-3150/blob/master/HW2/3/src/Main.java
+Sample Output: https://github.com/aniskhan/CISC-3150/blob/master/HW2/3/sampleOutput/sampleOutput.txt
 
 Question 4:
 
-Main.java: <link>
-Sample Output: <link>
+In the first code snippet, the value of x remains fixed at 4282. Thus the bit-shifting cycles indefinitely in the same pattern.
+
+In the second code snippet, we reassign x, after shifting by i. Thus, we lose a part of x each time (by i number of bits). By the sixth iteration, x is zero, which will repeat forever beyond that point (b/c bit shifting zero equals zero).
+	
+(I just examined at the code; didn't look anything up other than the operator differences b/w Java / C++.)
+
 
 Question 5:
 
-Main.java: <link>
-Sample Output: <link>
+I implemented this in Question 2. This drove me crazy because I knew it was the newline throwing me off, but totally forgot about the carriage return.
+
 
 Question 6:
 
-Main.java: <link>
-Sample Output: <link>
+.useDelimiter("") ... which is crazy because I expected ".", the regex for any char. What's up with that?
 
