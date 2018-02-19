@@ -1,0 +1,45 @@
+ Question 4:
+Figure out why the following two pieces of code produce different outputs. 
+MAKE SURE YOU CITE YOUR SOURCE FOR THE ANSWER TO THIS QUESTION.
+
+int x = 4282;
+for(int i=0;i<100;i++){
+	System.out.printf("%d\t\t%32s\n",i,Integer.toBinaryString(x>>>i));
+}
+
+VS
+
+int x = 4282;
+for(int i=0;i<100;i++){
+	System.out.printf("%d\t\t%32s\n",i,Integer.toBinaryString(x));
+	x = x >>> i; 
+	
+}
+
+--- COMMENTS ---
+	In the first code snippet, the value of x remains fixed at 4282. Thus the bit-shifting 
+cycles indefinately in the same pattern.
+
+	In the second code snippet, we reassign x, after shifting by i. Thus, we lose a part of 
+x (its binary) each time (by i number of bits). By the sixth iteration, x is zero, which will 
+repeat forever beyond that point (b/c bit shifting zero equals zero).
+
+--- NOTES ---
+[>>]
+
+x >> y			Shift x right by y bits, with sign extension
+
+[>>>]
+
+x >>> y			Shift x right by y bits, with 0 fill
+
+[<<]
+
+x << y 			Shift x left by y bits
+
+
+https://www.techopedia.com/definition/26846/bit-shifting
+Logical left shift and arithmetic left shift have the same effect so Java only has a single left shift operator (<<).
+The arithmetic right shift is (>>) while the logical is (>>>). In C and C++, there is only one shift right operator (>>);
+the kind of shift to be done is determined by the type of integer being shifted. 
+Signed integers are shifted using arithmetic while logical bit shifting is used on unsigned integers. 
