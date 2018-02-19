@@ -1,0 +1,8 @@
+How tall would you like your pyramid to be?
+5
+
+    1    
+   121   
+  12321  
+ 1234321 
+123454321

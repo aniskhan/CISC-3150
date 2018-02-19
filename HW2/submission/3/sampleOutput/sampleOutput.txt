@@ -1,0 +1,12 @@
+Enter a String:
+madam
+Yay a palidrome!
+
+
+Enter a String:
+hello world
+Not a palidrome.
+
+Enter a String:
+wow wow
+Yay a palidrome!

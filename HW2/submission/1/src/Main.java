@@ -24,7 +24,7 @@ program shows:
  0  1  2  3  2  1  0 
  1  2  3  4  3  2  1 
  
- From here it's simple to see that in order to hold the pyramid, you need a matrix with n columns,
+ From here it's simple to see that in order to hold the pyramid, you need a matrix with n rows,
  where n = height + (height-1) AND that each row has a seed (starting point) relative to x / y.
  The values count up from that seed to the center of the pyramid, then decreases. 
  
